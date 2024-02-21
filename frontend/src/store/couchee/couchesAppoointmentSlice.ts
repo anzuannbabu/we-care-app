@@ -25,17 +25,17 @@ const initialState: AppointmentSlice = {
 
 //create slice
 const appointmentSlice = createSlice({
-  name: "couchesAppointments",
+  name: "coucheeAppointments",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     //will build our async reducer here
     builder
-      .addCase(fetchCouchAppointmentsAsync.pending, (state) => {
+      .addCase(fetchCoucheeAppointmentsAsync.pending, (state) => {
         state.loading = true;
       })
       .addCase(
-        fetchCouchAppointmentsAsync.fulfilled,
+        fetchCoucheeAppointmentsAsync.fulfilled,
         (state, action: PayloadAction<Appointment[]>) => {
           state.data = action.payload;
           state.loading = false;
@@ -45,8 +45,8 @@ const appointmentSlice = createSlice({
 });
 
 //create async reducer here
-export const fetchCouchAppointmentsAsync = createAsyncThunk(
-  "couchApppointments/fetchAllCouchApppointments",
+export const fetchCoucheeAppointmentsAsync = createAsyncThunk(
+  "coucheeApppointments/fetchAllCoucheeApppointments",
   async (params: any) => {
     const posts = await axios.get("http://localhost:8008/api/v1/appointments", {
       headers: {

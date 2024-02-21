@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../store/store'
 import { fetchCouchesAsync } from '../store/couches/couchesSlice'
 import NewAppointment from '../components/NewAppointment'
+import PageLoader from '../components/PageLoader'
 
 function UserHome() {
     const [showNewAppointmnet, setShowNewAppointment] = useState({ show: false, couch: {} })
@@ -29,19 +30,7 @@ function UserHome() {
                         {/* list of couches */}
                         <div className="row justify-content-center">
                             {
-                                loading ? (<>
-                                    <div className="col-sm-12  mt-5 pt-5">
-                                        <div className='loading-indicator mt-5 pt-5'>
-                                            <div className="spinner-border" role="status" style={{ width: '23px', height: '23px' }}>
-                                                <span className="visually-hidden">Loading...</span>
-                                            </div>
-
-                                            <div>
-                                                Fetching Data, Please wait
-                                            </div>
-                                        </div>
-                                    </div>
-                                </>) :
+                                loading ? <PageLoader /> :
                                     data.map(row => <div key={row._id} className="col-md-6 mb-4">
                                         <div className="card couch-box">
                                             <div className="card-body d-flex justify-content-start align-items-center">

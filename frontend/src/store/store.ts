@@ -3,6 +3,7 @@ import counterReducer from "./counter/counterSlice";
 import postsReducer from "./posts/postsSlice";
 import coucheeReducer from "./couches/couchesSlice";
 import couchAppointmentsReducer from "./couches/couchesAppoointmentSlice";
+import coucheeAppointmentsReducer from "./couchee/couchesAppoointmentSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     posts: postsReducer,
     couches: coucheeReducer,
     couchAppointments: couchAppointmentsReducer,
+    coucheeAppointments: coucheeAppointmentsReducer,
   },
 });
 

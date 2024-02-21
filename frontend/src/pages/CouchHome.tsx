@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../store/store'
 import { fetchCouchAppointmentsAsync } from '../store/couches/couchesAppoointmentSlice'
 import useAuth from '../hooks/useAuth'
+import PageLoader from '../components/PageLoader'
 
 function CouchHome() {
   const { auth } = useAuth()
@@ -20,19 +21,7 @@ function CouchHome() {
 
         <div className="row justify-content-center">
           {
-            loading ? (<>
-              <div className="col-sm-12  mt-5 pt-5">
-                <div className='loading-indicator mt-5 pt-5'>
-                  <div className="spinner-border" role="status" style={{ width: '23px', height: '23px' }}>
-                    <span className="visually-hidden">Loading...</span>
-                  </div>
-
-                  <div>
-                    Fetching Data, Please wait
-                  </div>
-                </div>
-              </div>
-            </>) :
+            loading ? <PageLoader /> :
               data.map((row, index) => <div key={row._id} className="col-md-4 mb-3">
                 <div className="card">
                   <div className="card-body bg-dark text-white text-center px-5 py-4 rounded">

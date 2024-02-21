@@ -33,11 +33,12 @@ function Header() {
                             {
                                 auth?.user?.userCategory === 'couch' ? <>
                                     <li className="nav-item">
-                                        <a className="nav-link text-white " style={{ cursor: 'pointer' }} href='#'>My Schedules</a>
+                                        <Link to='/my-schedule' className="nav-link text-white " >My Schedules</Link>
                                     </li> &nbsp;&nbsp;&nbsp;
                                 </> : <>
                                     <li className="nav-item">
-                                        <a className="nav-link text-white " style={{ cursor: 'pointer' }} href='#'>My Appointments</a>
+                                        <Link to='/user-appointmens' className="nav-link text-white " >My Appointments</Link>
+
                                     </li> &nbsp;&nbsp;&nbsp;
                                 </>
                             }

@@ -16,6 +16,8 @@ import RequireAuth from './components/RequireAuth'
 import CouchLogin from './pages/CouchLogin'
 import CouchRegistration from './pages/CouchRegistration'
 import UserProfile from './pages/UserProfile'
+import MyAppointments from './pages/MyAppointments'
+import MySchedules from './pages/MySchedules'
 // import { AuthProvider } from './context/AuthProvider'
 // import RequireAuth from './components/RequireAuth'
 
@@ -24,18 +26,10 @@ function App() {
 
   return (
     <>
-      {/* <div className="container mt-5">
-     <div className="row">
-        <div className="col-md-4">
-          <Counter />
-        </div>
-        <div className="col-md-8">
-          <Posts />
-        </div>
-      </div>
-     </div> */}
-
+      {/* header */}
       <Header />
+
+      {/* routes */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/user-login" element={<UserLogin />} />
@@ -46,7 +40,10 @@ function App() {
         <Route element={<RequireAuth />}>
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/user-home" element={<UserHome />} />
+          <Route path="/user-appointmens" element={<MyAppointments />} />
+
           <Route path="/couch-home" element={<CouchHome />} />
+          <Route path="/my-schedule" element={<MySchedules />} />
         </Route>
       </Routes>
 
